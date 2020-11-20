@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  KeycloakConfig: {
+    url:          'https://auth.poudlard.net:8450/auth/',
+    realm:        'Poudlard',
+    clientId:     'poudlard',
+    clientSecret: ''
+  },
+  appName: 'Keycloak Angular App Testing'
 };
 
 /*

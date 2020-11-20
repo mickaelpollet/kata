@@ -1,3 +1,10 @@
 export const environment = {
-  production: true
+  production: true,
+  KeycloakConfig: {
+    url:          'https://auth.poudlard.net:8450/auth/',
+    realm:        'Poudlard',
+    clientId:     'poudlard',
+    clientSecret: ''
+  },
+  appName: 'Keycloak Angular App testing'
 };
