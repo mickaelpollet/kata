@@ -17,6 +17,7 @@ import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { HomeComponent } from './components/home/home.component';
 import { PublicComponent } from './components/public/public.component';
 import { PrivateComponent } from './components/private/private.component';
+import { UserComponent } from './components/user/user.component';
 
 // Specific Keycloak Instanciation Function
 export function kcFactory(kcInstance: SecurityService) {
@@ -30,7 +31,8 @@ export function kcFactory(kcInstance: SecurityService) {
     TopMenuComponent,
     HomeComponent,
     PublicComponent,
-    PrivateComponent
+    PrivateComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

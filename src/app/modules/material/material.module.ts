@@ -10,6 +10,7 @@ import { MatCardModule }    from '@angular/material/card';
 import { MatTableModule }    from '@angular/material/table';
 import { MatListModule }    from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {MatTooltipModule}   from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [],
@@ -22,7 +23,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatCardModule,
     MatTableModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTooltipModule
   ],
   exports: [
     MatMenuModule,
@@ -32,7 +34,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatCardModule,
     MatTableModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTooltipModule
   ]
 })
 
