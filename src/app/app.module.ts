@@ -18,6 +18,9 @@ import { HomeComponent } from './components/home/home.component';
 import { PublicComponent } from './components/public/public.component';
 import { PrivateComponent } from './components/private/private.component';
 import { UserComponent } from './components/user/user.component';
+import { TokenInformationsComponent } from './components/token-informations/token-informations.component';
+import { TokenTechnicalsInformationsComponent } from './components/token-technicals-informations/token-technicals-informations.component';
+import { TokenUserInformationsComponent } from './components/token-user-informations/token-user-informations.component';
 
 // Specific Keycloak Instanciation Function
 export function kcFactory(kcInstance: SecurityService) {
@@ -32,7 +35,10 @@ export function kcFactory(kcInstance: SecurityService) {
     HomeComponent,
     PublicComponent,
     PrivateComponent,
-    UserComponent
+    UserComponent,
+    TokenInformationsComponent,
+    TokenTechnicalsInformationsComponent,
+    TokenUserInformationsComponent
   ],
   imports: [
     BrowserModule,

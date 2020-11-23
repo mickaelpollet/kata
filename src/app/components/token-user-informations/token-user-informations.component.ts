@@ -3,25 +3,17 @@ import { Component, OnInit } from '@angular/core';
 // Import des services
 import { SecurityService } from '../../services/security.service';
 
-export class User {
-  id: string ;
-  login: string;
-  mail: string;
-}
-
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  selector: 'app-token-user-informations',
+  templateUrl: './token-user-informations.component.html',
+  styleUrls: ['./token-user-informations.component.scss']
 })
-export class UserComponent implements OnInit {
+export class TokenUserInformationsComponent implements OnInit {
 
   currentUser: any;
-  currentUSerAllowOrigins: any;
 
   constructor(public SecurityService: SecurityService) {
     this.currentUser = this.SecurityService.userIdentity.tokenParsed;
-    console.log(this.currentUser);
   }
 
   ngOnInit(): void {

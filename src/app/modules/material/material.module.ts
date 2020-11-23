@@ -2,15 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Material Modules Import
-import { MatMenuModule }    from '@angular/material/menu';
-import { MatButtonModule }  from '@angular/material/button';
-import { MatIconModule }    from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule }    from '@angular/material/card';
-import { MatTableModule }    from '@angular/material/table';
-import { MatListModule }    from '@angular/material/list';
-import { MatGridListModule } from '@angular/material/grid-list';
-import {MatTooltipModule}   from '@angular/material/tooltip';
+import { MatMenuModule }      from '@angular/material/menu';
+import { MatButtonModule }    from '@angular/material/button';
+import { MatIconModule }      from '@angular/material/icon';
+import { MatToolbarModule }   from '@angular/material/toolbar';
+import { MatCardModule }      from '@angular/material/card';
+import { MatTableModule }     from '@angular/material/table';
+import { MatListModule }      from '@angular/material/list';
+import { MatGridListModule }  from '@angular/material/grid-list';
+import { MatTooltipModule }   from '@angular/material/tooltip';
+import { MatChipsModule }     from '@angular/material/chips';
+import { MatDialogModule }    from '@angular/material/dialog';
+import { MatDividerModule }   from '@angular/material/divider';
 
 @NgModule({
   declarations: [],
@@ -24,7 +27,10 @@ import {MatTooltipModule}   from '@angular/material/tooltip';
     MatTableModule,
     MatListModule,
     MatGridListModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatChipsModule,
+    MatDialogModule,
+    MatDividerModule
   ],
   exports: [
     MatMenuModule,
@@ -35,7 +41,10 @@ import {MatTooltipModule}   from '@angular/material/tooltip';
     MatTableModule,
     MatListModule,
     MatGridListModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatChipsModule,
+    MatDialogModule,
+    MatDividerModule
   ]
 })
 

@@ -1,0 +1,38 @@
+<h1>Technicals informations</h1>
+
+<mat-list dense style="background-color: #777;">
+
+    <mat-list-item>Authentication Server URL (authServerUrl) : {{ this.SecurityService.userIdentity.authServerUrl }}</mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item>Issuer (iss) : {{ this.currentUser.iss }}</mat-list-item>
+    <mat-list-item>Client ID (clientId) : {{ this.SecurityService.userIdentity.clientId }}</mat-list-item>
+    <mat-list-item>Realm (realm) : {{ this.SecurityService.userIdentity.realm }}</mat-list-item>
+    <mat-list-item>Authorized Party (azp) : {{ this.currentUser.azp }}</mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item [style.height]="'100px'">
+        <div>Allowed Origins (allowed-origins)</div>
+        <mat-chip-list
+            cdkDropList 
+            cdkDropListOrientation="horizontal">
+            <mat-chip
+                cdkDrag
+                *ngFor="let currentOrigin of this.currentUser['allowed-origins']">
+                {{ currentOrigin }}
+            </mat-chip>
+        </mat-chip-list>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item [style.height]="'50px'">
+        <div>Scopes (scope)</div>
+        <mat-chip cdkDrag>{{ this.currentUser.scope }}</mat-chip>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+</mat-list>

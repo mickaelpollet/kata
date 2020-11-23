@@ -1,64 +1,15 @@
 <mat-grid-list cols="3" rowHeight="1000px">
-    Technicals informations
-    <mat-grid-tile>
-        
-        <mat-list dense style="background-color: #777;">
-            <mat-list-item>Authentication Server URL (authServerUrl) : {{ this.SecurityService.userIdentity.authServerUrl }}</mat-list-item>
-            <mat-list-item>Issuer (iss) : {{ this.currentUser.iss }}</mat-list-item>
-            <mat-list-item>Client ID (clientId) : {{ this.SecurityService.userIdentity.clientId }}</mat-list-item>
-            <mat-list-item>Realm (realm) : {{ this.SecurityService.userIdentity.realm }}</mat-list-item>
-            
-            <mat-list-item>Authorized Party (azp) : {{ this.currentUser.azp }}</mat-list-item>
-            <mat-list-item>Allowed Origins (allowed-origins) : {{ this.currentUser['allowed-origins'] }}</mat-list-item>
-            <mat-list-item>Scopes (scope) : {{ this.currentUser.scope }}</mat-list-item>
-        </mat-list>
+    
+    <mat-grid-tile>        
+        <app-token-technicals-informations></app-token-technicals-informations>
     </mat-grid-tile>
 
     <mat-grid-tile>
-        User informations
-        <mat-list dense style="background-color: #777;">
-            <mat-list-item>UserName (preferred_username) : {{ this.currentUser.preferred_username }}</mat-list-item>
-            <mat-list-item>User Name (name) : {{ this.currentUser.name }}</mat-list-item>
-            <mat-list-item>First Name (given_name) : {{ this.currentUser.given_name }}</mat-list-item>
-            <mat-list-item>Last Name (family_name) : {{ this.currentUser.family_name }}</mat-list-item>
-            <mat-list-item>User Authenticated (authenticated) : {{ this.SecurityService.userIdentity.authenticated }}</mat-list-item>
-            <mat-list-item>eMail Address (email) : {{ this.currentUser.email }}</mat-list-item>
-            <mat-list-item>Email Verified (email_verified) : {{ this.currentUser.email_verified }}</mat-list-item>
-            <mat-list-item>User ID (sub) : {{ this.SecurityService.userIdentity.subject }}</mat-list-item>
-            <mat-list-item>Realms Roles (realm_access / roles) : {{ this.currentUser['realm_access'].roles }}</mat-list-item>
-            <mat-list-item>Ressource Roles (resource_access / account / roles) : {{ this.currentUser['resource_access'].account.roles }}</mat-list-item>
-        </mat-list>
+        <app-token-user-informations></app-token-user-informations>
     </mat-grid-tile>
+
     <mat-grid-tile>
-        Token Informations
-        <mat-list dense style="background-color: #777;">
-            <mat-list-item>Session ID (sessionId) : {{ this.SecurityService.userIdentity.sessionId }}</mat-list-item>
-            <mat-list-item>Expiration Time (exp) : {{ this.currentUser.exp }}</mat-list-item>
-
-            <mat-list-item>Token (token) : <span    #tooltip="matTooltip"
-                                                    matTooltip="{{ this.SecurityService.userIdentity.token }}"
-                                                    [matTooltipPosition]="'above'"
-                                                    matTooltipHideDelay="1000">ICI</span></mat-list-item>
-            <mat-list-item>Refresh Token (refreshToken) : <span    #tooltip="matTooltip"
-                                                                matTooltip="{{ this.SecurityService.userIdentity.refreshToken }}"
-                                                                [matTooltipPosition]="'above'"
-                                                                matTooltipHideDelay="1000">ICI</span></mat-list-item>
-            <mat-list-item>Token ID (idToken) : <span    #tooltip="matTooltip"
-                                                        matTooltip="{{ this.SecurityService.userIdentity.idToken }}"
-                                                        [matTooltipPosition]="'above'"
-                                                        matTooltipHideDelay="1000">ICI</span></mat-list-item>
-
-            <mat-list-item>Issued at (iat) : {{ this.currentUser.iat }}</mat-list-item>
-            <mat-list-item>Authentication Time (auth_time) : {{ this.currentUser.auth_time }}</mat-list-item>
-            <mat-list-item>Token Uniq ID (jti) : {{ this.currentUser.jti }}</mat-list-item>
-            <mat-list-item>Flow Type (flow) : {{ this.SecurityService.userIdentity.flow }}</mat-list-item>
-            <mat-list-item>Audience (aud) : {{ this.currentUser.aud }}</mat-list-item>
-            <mat-list-item>Response Mode (responseMode) : {{ this.SecurityService.userIdentity.responseMode }}</mat-list-item>
-            <mat-list-item>Response Type (responseType) : {{ this.SecurityService.userIdentity.responseType }}</mat-list-item>
-            <mat-list-item>Token Type (typ) : {{ this.currentUser.typ }}</mat-list-item>
-            <mat-list-item>Unique value for token (nonce) : {{ this.currentUser.nonce }}</mat-list-item>
-            <mat-list-item>Session State (session_state) : {{ this.currentUser.session_state }}</mat-list-item>
-            <mat-list-item>Authentication Context Class (acr) : {{ this.currentUser.acr }}</mat-list-item>
-        </mat-list>
+        <app-token-informations></app-token-informations>
     </mat-grid-tile>
+
 </mat-grid-list>
