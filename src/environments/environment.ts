@@ -10,7 +10,8 @@ export const environment = {
     clientId:     'poudlard',
     clientSecret: ''
   },
-  appName: 'Keycloak Angular App Testing'
+  appName: 'Keycloak Angular Testing Application',
+  appNameAcronym: 'KATA'
 };
 
 /*

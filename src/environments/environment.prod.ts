@@ -6,5 +6,6 @@ export const environment = {
     clientId:     'poudlard',
     clientSecret: ''
   },
-  appName: 'Keycloak Angular App testing'
+  appName: 'Keycloak Angular Testing Application',
+  appNameAcronym: 'KATA'
 };
