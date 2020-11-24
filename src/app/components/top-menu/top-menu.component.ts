@@ -14,7 +14,7 @@ import { MenuService } from '../../services/menu.service';
 
 export class TopMenuComponent implements OnInit {
 
-  title: string = environment.appName;
+  title: string = environment.appNameAcronym;
   currentUser: any;
   menu_color: string;
 

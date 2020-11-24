@@ -11,7 +11,7 @@ import { MenuService } from '../../services/menu.service';
 })
 export class HomeComponent implements OnInit {
 
-  page_title: string      = "Keycloak Angular Application Testing";
+  page_title: string      = "Keycloak Angular Testing Application";
   page_subject: string    = "Application testing for Keycloak environment";
   page_menu_color: string = "#424242";
   userFirstName: any;
