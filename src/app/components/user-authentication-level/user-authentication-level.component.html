@@ -1,0 +1,30 @@
+<div    class="authenticationLevel"
+        [style.background-color]="this.authenticationLevelColor[this.authenticationLevel]"
+        #tooltip="matTooltip"
+        matTooltip="0 : Insufficient process / 1 : login & Password, Authentication delegation without TFA / 2 : Two stars process / 3 : Three stars process"
+        [matTooltipPosition]="'above'"
+        matTooltipHideDelay="5000">
+
+    <mat-grid-tile-header>
+        <h1 class="block-title">Authentication level</h1>
+    </mat-grid-tile-header>
+
+    <table [style.margin-left]="'auto'" [style.margin-right]="'auto'">
+        <tr height="45px"><td> </td><td> </td></tr>
+        <tr>
+            <td width="40%">
+                <mat-icon class="authenticationSmiley" aria-hidden="false" aria-label="Authentication level">{{ authenticationLevelSmiley[this.authenticationLevel] }}</mat-icon>
+            </td>
+            <td width="60%">
+                <div *ngIf="this.authenticationLevel > 0">
+                    <mat-icon aria-hidden="false" aria-label="Authentication level" *ngFor="let currentStar of this.authenticationStars(this.authenticationLevel).fill(1)">star</mat-icon>
+                    <mat-icon aria-hidden="false" aria-label="Authentication level" *ngFor="let currentStar of this.authenticationStars(3 - this.authenticationLevel).fill(1)">star_outline</mat-icon>
+                </div>
+                <div *ngIf="this.authenticationLevel == 0">
+                    <mat-icon aria-hidden="false" aria-label="Authentication level" *ngFor="let currentStar of this.authenticationStars(3 - this.authenticationLevel).fill(1)">star_outline</mat-icon>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</div>

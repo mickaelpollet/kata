@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Specifics modules
 import { MaterialModule } from './modules/material/material.module';
 import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
+import { CountdownModule } from 'ngx-countdown';
 
 // Security
 import { SecurityService } from './services/security.service';
@@ -21,6 +22,8 @@ import { UserComponent } from './components/user/user.component';
 import { TokenInformationsComponent } from './components/token-informations/token-informations.component';
 import { TokenTechnicalsInformationsComponent } from './components/token-technicals-informations/token-technicals-informations.component';
 import { TokenUserInformationsComponent } from './components/token-user-informations/token-user-informations.component';
+import { UserAuthenticationLevelComponent } from './components/user-authentication-level/user-authentication-level.component';
+import { UserSessionTimerComponent } from './components/user-session-timer/user-session-timer.component';
 
 // Specific Keycloak Instanciation Function
 export function kcFactory(kcInstance: SecurityService) {
@@ -38,13 +41,16 @@ export function kcFactory(kcInstance: SecurityService) {
     UserComponent,
     TokenInformationsComponent,
     TokenTechnicalsInformationsComponent,
-    TokenUserInformationsComponent
+    TokenUserInformationsComponent,
+    UserAuthenticationLevelComponent,
+    UserSessionTimerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    CountdownModule
   ],
   providers: [
     { provide: APP_INITIALIZER, deps: [ SecurityService ], useFactory: kcFactory, multi: true },
