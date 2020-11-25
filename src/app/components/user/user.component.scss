@@ -11,6 +11,13 @@ table {
     width: 100%;
 }
 
-.mat-grid-tile .mat-figure {
-    align-items: normal;
+.block-content {
+    align-self: flex-start;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.block-title {
+    font-weight: bold;
+    font-size: larger;
 }

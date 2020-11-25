@@ -1,15 +1,31 @@
-<mat-grid-list cols="3" rowHeight="1000px">
+<mat-grid-list cols="3" rowHeight="750px">
     
-    <mat-grid-tile>        
-        <app-token-technicals-informations></app-token-technicals-informations>
+    
+    <mat-grid-tile>
+        <mat-grid-tile-header>
+            <h1 class="block-title">Technicals informations</h1>
+        </mat-grid-tile-header>
+        <div class="block-content">
+            <app-token-technicals-informations></app-token-technicals-informations>
+        </div>
     </mat-grid-tile>
 
     <mat-grid-tile>
-        <app-token-user-informations></app-token-user-informations>
+        <mat-grid-tile-header>
+            <h1 class="block-title">User informations</h1>
+        </mat-grid-tile-header>
+        <div class="block-content">
+            <app-token-user-informations></app-token-user-informations>
+        </div>
     </mat-grid-tile>
 
     <mat-grid-tile>
-        <app-token-informations></app-token-informations>
+        <mat-grid-tile-header>
+            <h1 class="block-title">Token Informations</h1>
+        </mat-grid-tile-header>
+        <div class="block-content">
+            <app-token-informations></app-token-informations>
+        </div>
     </mat-grid-tile>
 
 </mat-grid-list>
