@@ -11,10 +11,14 @@ import { MenuService } from '../../services/menu.service';
 })
 export class HomeComponent implements OnInit {
 
-  page_title: string      = "Keycloak Angular Testing Application";
-  page_subject: string    = "Application testing for Keycloak environment";
-  page_menu_color: string = "#424242";
+  page_title: string                  = "Keycloak Angular Testing Application";
+  page_subject: string                = "Application testing for Keycloak environment";
+  page_menu_color: string             = "#424242";
   userFirstName: any;
+  authenticationLevel: number         = 0;
+  authenticationLevelColor: string[]  = [ "red", "orange", "yellow", "green" ];
+  authenticationLevelSmiley: string[] = [ "sentiment_very_dissatisfied", "sentiment_satisfied", "ssentiment_very_satisfied", "sentiment_very_satisfied" ];
+  authenticationStars                 = Array;
 
   constructor(public securityService: SecurityService,
               public menuService: MenuService) {
@@ -23,6 +27,8 @@ export class HomeComponent implements OnInit {
 
     if (this.securityService.userIdentity.authenticated) {
       this.userFirstName = this.securityService.userIdentity.tokenParsed['given_name'];
+      // Retreaving Authentication Level
+      this.authenticationLevel = this.securityService.userIdentity.tokenParsed['acr'];
     }
   }
 
