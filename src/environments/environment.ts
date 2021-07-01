@@ -11,8 +11,8 @@ export const environment = {
     /***************************************************/
 
     url: 'https://auth.poudlard.net:8450/auth/',
-    realm: 'Poudlard',
-    clientId: 'poudlard',
+    realm: 'poudlard',
+    clientId: 'poudlard-front',
 
     clientSecret: ''
   },

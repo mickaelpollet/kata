@@ -16,23 +16,23 @@
 
     <!-- Welcome Message -->
     <mat-grid-tile [colspan]="8">
-        <span *ngIf="!this.securityService.userIdentity.authenticated">
+        <span *ngIf="!this.userService.isAuthenticated()">
             <span class="welcome_message">No user is authenticated, click on Login in the top menu</span>
-        </span>        
-        <span *ngIf="this.securityService.userIdentity.authenticated">        
+        </span>
+        <span *ngIf="this.userService.isAuthenticated()">
             <span class="welcome_message">The user {{ this.userFirstName }} is correctly authenticated</span>
         </span>
     </mat-grid-tile>
 
     <!-- User Session Timer -->
-    <div *ngIf="this.securityService.userIdentity.authenticated">
+    <div *ngIf="this.userService.isAuthenticated()">
         <mat-grid-tile [colspan]="1" rowHeight="100%">
             <app-user-session-timer></app-user-session-timer>
         </mat-grid-tile>
     </div>
 
     <!-- Authentication level -->
-    <div *ngIf="this.securityService.userIdentity.authenticated">
+    <div *ngIf="this.userService.isAuthenticated()">
         <mat-grid-tile [colspan]="1" rowHeight="100%">
             <app-user-authentication-level></app-user-authentication-level>
         </mat-grid-tile>
@@ -40,6 +40,6 @@
 
 </mat-grid-list>
 
-<span *ngIf="this.securityService.userIdentity.authenticated">
+<span *ngIf="this.userService.isAuthenticated()">
     <app-user></app-user>
 </span>

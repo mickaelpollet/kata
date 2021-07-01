@@ -1,28 +1,28 @@
 <mat-list dense style="background-color: #777;">
 
-    <mat-list-item>UserName (preferred_username) : {{ this.currentUser.preferred_username }}</mat-list-item>
+    <mat-list-item>UserName (preferred_username) : {{ this.userService.currentUser.keycloakUser.tokenParsed.preferred_username }}</mat-list-item>
 
     <mat-divider></mat-divider>
 
-    <mat-list-item>User Name (name) : {{ this.currentUser.name }}</mat-list-item>
-    <mat-list-item>First Name (given_name) : {{ this.currentUser.given_name }}</mat-list-item>
-    <mat-list-item>Last Name (family_name) : {{ this.currentUser.family_name }}</mat-list-item>
-    <mat-list-item>User Authenticated (authenticated) : {{ this.SecurityService.userIdentity.authenticated }}</mat-list-item>
-    <mat-list-item>eMail Address (email) : {{ this.currentUser.email }}</mat-list-item>
-    <mat-list-item>Email Verified (email_verified) : {{ this.currentUser.email_verified }}</mat-list-item>
-    <mat-list-item>User ID (sub) : {{ this.SecurityService.userIdentity.subject }}</mat-list-item>
+    <mat-list-item>User Name (name) : {{ this.userService.currentUser.keycloakUser.tokenParsed.name }}</mat-list-item>
+    <mat-list-item>First Name (given_name) : {{ this.userService.currentUser.fname }}</mat-list-item>
+    <mat-list-item>Last Name (family_name) : {{ this.userService.currentUser.lname }}</mat-list-item>
+    <mat-list-item>User Authenticated (authenticated) : {{ this.userService.isAuthenticated() }}</mat-list-item>
+    <mat-list-item>eMail Address (email) : {{ this.userService.currentUser.mail }}</mat-list-item>
+    <mat-list-item>Email Verified (email_verified) : {{ this.userService.currentUser.keycloakUser.tokenParsed.email_verified }}</mat-list-item>
+    <mat-list-item>User ID (sub) : {{ this.userService.currentUser.keycloakUser.subject }}</mat-list-item>
 
     <mat-divider></mat-divider>
 
     <mat-list-item  [style.height]="'100%'" [style.padding-top]="'10px'" [style.padding-bottom]="'10px'">
         <div>Realms Roles (realm_access / roles)</div>
         <mat-chip-list
-            cdkDropList 
+            cdkDropList
             cdkDropListOrientation="horizontal">
             <mat-chip
                 cdkDrag
-                *ngFor="let RealmRole of this.currentUser['realm_access'].roles">
-                {{ RealmRole }}
+                *ngFor="let RealmRole of this.userService.currentUser.roles">
+                {{ RealmRole.name }}
             </mat-chip>
         </mat-chip-list>
     </mat-list-item>
@@ -32,11 +32,11 @@
     <mat-list-item  [style.height]="'100%'" [style.padding-top]="'10px'" [style.padding-bottom]="'10px'">
         <div> Ressource Roles (resource_access / account / roles)</div>
         <mat-chip-list
-            cdkDropList 
+            cdkDropList
             cdkDropListOrientation="horizontal">
             <mat-chip
                 cdkDrag
-                *ngFor="let RessourceRole of this.currentUser['resource_access'].account.roles">
+                *ngFor="let RessourceRole of this.userService.currentUser.keycloakUser.tokenParsed['resource_access'].account.roles">
                 {{ RessourceRole }}
             </mat-chip>
         </mat-chip-list>

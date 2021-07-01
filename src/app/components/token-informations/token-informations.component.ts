@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 // Import des services
-import { SecurityService } from '../../services/security.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-token-informations',
@@ -12,11 +12,9 @@ import { SecurityService } from '../../services/security.service';
 
 export class TokenInformationsComponent implements OnInit {
 
-  currentUser: any;
+  //currentUser: any;
 
-  constructor(public SecurityService: SecurityService, public dialog: MatDialog) {
-    this.currentUser = this.SecurityService.userIdentity.tokenParsed;
-  }
+  constructor(public userService: UserService, public dialog: MatDialog) { }
 
   openTokenDialog() {
     this.dialog.open(TokenInformationsDialog);
@@ -42,9 +40,7 @@ export class TokenInformationsDialog {
 
   currentUser: any;
 
-  constructor(public SecurityService: SecurityService) {
-    this.currentUser = this.SecurityService.userIdentity.tokenParsed;
-  }
+  constructor(public userService: UserService) { }
 }
 
 @Component({
@@ -55,9 +51,7 @@ export class RefreshTokenInformationsDialog {
 
   currentUser: any;
 
-  constructor(public SecurityService: SecurityService) {
-    this.currentUser = this.SecurityService.userIdentity.tokenParsed;
-  }
+  constructor(public userService: UserService) { }
 }
 
 @Component({
@@ -68,7 +62,5 @@ export class IdTokenInformationsDialog {
 
   currentUser: any;
 
-  constructor(public SecurityService: SecurityService) {
-    this.currentUser = this.SecurityService.userIdentity.tokenParsed;
-  }
+  constructor(public userService: UserService) { }
 }

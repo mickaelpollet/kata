@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 // Import des services
-import { SecurityService } from '../../services/security.service';
+import { UserService } from '../../services/user.service';
 
 export class User {
-  id: string ;
+  id: string;
   login: string;
   mail: string;
 }
@@ -16,13 +16,9 @@ export class User {
 })
 export class UserComponent implements OnInit {
 
-  currentUser: any;
-  currentUSerAllowOrigins: any;
+  currentUserAllowOrigins: any;
 
-  constructor(public SecurityService: SecurityService) {
-    this.currentUser = this.SecurityService.userIdentity.tokenParsed;
-    console.log(this.currentUser);
-  }
+  constructor(public userService: UserService) { }
 
   ngOnInit(): void {
   }

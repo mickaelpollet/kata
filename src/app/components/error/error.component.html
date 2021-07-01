@@ -2,19 +2,10 @@
 
 <mat-card class="jumbotron">
     <div class="jumbotron_container">
-        <h1 class="jumbotron_title">{{ page_title }}</h1>
-        <span class="jumbotron_subject">"{{ page_subject }}"</span>
-    </div>   
-</mat-card>
-
-<mat-card style="max-width: 300px;margin-top: -50px;margin-left: 400px">
-    <img src="assets/img/dragon.jpg" style="max-width: 300px">
+        <h1 class="jumbotron_title">An error has occured</h1>
+    </div>
 </mat-card>
 
 <span class="error_message">
     "{{ this.error_message }}"
-</span>
-
-<span *ngIf="this.securityService.userIdentity.authenticated">
-    <!-- <app-user></app-user> -->
 </span>

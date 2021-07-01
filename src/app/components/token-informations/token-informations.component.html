@@ -8,25 +8,25 @@
 
     <mat-divider></mat-divider>
 
-    <mat-list-item>Authentication Time (auth_time) : {{ this.currentUser.auth_time }} - {{ this.currentUser.auth_time * 1000 | date: 'medium' }}</mat-list-item>
-    <mat-list-item>Issued at (iat) : {{ this.currentUser.iat }} - {{ this.currentUser.iat * 1000 | date: 'medium' }}</mat-list-item>
-    <mat-list-item>Expiration Time (exp) : {{ this.currentUser.exp }} - {{ this.currentUser.exp * 1000 | date: 'medium' }}</mat-list-item>
-    <mat-list-item>Session Time Duration : {{ this.currentUser.exp - this.currentUser.iat }} s</mat-list-item>
+    <mat-list-item>Authentication Time (auth_time) : {{ this.userService.currentUser.keycloakUser.tokenParsed.auth_time }} - {{ this.userService.currentUser.keycloakUser.tokenParsed.auth_time * 1000 | date: 'medium' }}</mat-list-item>
+    <mat-list-item>Issued at (iat) : {{ this.userService.currentUser.keycloakUser.tokenParsed.iat }} - {{ this.userService.currentUser.keycloakUser.tokenParsed.iat * 1000 | date: 'medium' }}</mat-list-item>
+    <mat-list-item>Expiration Time (exp) : {{ this.userService.currentUser.keycloakUser.tokenParsed.exp }} - {{ this.userService.currentUser.keycloakUser.tokenParsed.exp * 1000 | date: 'medium' }}</mat-list-item>
+    <mat-list-item>Session Time Duration : {{ this.userService.currentUser.keycloakUser.tokenParsed.exp - this.userService.currentUser.keycloakUser.tokenParsed.iat }} s</mat-list-item>
 
     <mat-divider></mat-divider>
 
-    <mat-list-item>Session ID (sessionId) : {{ this.SecurityService.userIdentity.sessionId }}</mat-list-item>
-    <mat-list-item>Token Uniq ID (jti) : {{ this.currentUser.jti }}</mat-list-item>
+    <mat-list-item>Session ID (sessionId) : {{ this.userService.currentUser.keycloakUser.sessionId }}</mat-list-item>
+    <mat-list-item>Token Uniq ID (jti) : {{ this.userService.currentUser.keycloakUser.tokenParsed.jti }}</mat-list-item>
 
     <mat-divider></mat-divider>
 
-    <mat-list-item>Flow Type (flow) : {{ this.SecurityService.userIdentity.flow }}</mat-list-item>
-    <mat-list-item>Audience (aud) : {{ this.currentUser.aud }}</mat-list-item>
-    <mat-list-item>Response Mode (responseMode) : {{ this.SecurityService.userIdentity.responseMode }}</mat-list-item>
-    <mat-list-item>Response Type (responseType) : {{ this.SecurityService.userIdentity.responseType }}</mat-list-item>
-    <mat-list-item>Token Type (typ) : {{ this.currentUser.typ }}</mat-list-item>
-    <mat-list-item>Unique value for token (nonce) : {{ this.currentUser.nonce }}</mat-list-item>
-    <mat-list-item>Session State (session_state) : {{ this.currentUser.session_state }}</mat-list-item>
-    <mat-list-item>Authentication Context Class (acr) : {{ this.currentUser.acr }}</mat-list-item>
+    <mat-list-item>Flow Type (flow) : {{ this.userService.currentUser.keycloakUser.flow }}</mat-list-item>
+    <mat-list-item>Audience (aud) : {{ this.userService.currentUser.keycloakUser.tokenParsed.aud }}</mat-list-item>
+    <mat-list-item>Response Mode (responseMode) : {{ this.userService.currentUser.keycloakUser.responseMode }}</mat-list-item>
+    <mat-list-item>Response Type (responseType) : {{ this.userService.currentUser.keycloakUser.responseType }}</mat-list-item>
+    <mat-list-item>Token Type (typ) : {{ this.userService.currentUser.keycloakUser.tokenParsed.typ }}</mat-list-item>
+    <mat-list-item>Unique value for token (nonce) : {{ this.userService.currentUser.keycloakUser.tokenParsed.nonce }}</mat-list-item>
+    <mat-list-item>Session State (session_state) : {{ this.userService.currentUser.keycloakUser.tokenParsed.session_state }}</mat-list-item>
+    <mat-list-item>Authentication Context Class (acr) : {{ this.userService.currentUser.keycloakUser.tokenParsed.acr }}</mat-list-item>
 
 </mat-list>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Import des services
-import { SecurityService } from '../../services/security.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-token-technicals-informations',
@@ -10,11 +10,7 @@ import { SecurityService } from '../../services/security.service';
 })
 export class TokenTechnicalsInformationsComponent implements OnInit {
 
-  currentUser: any;
-
-  constructor(public SecurityService: SecurityService) {
-    this.currentUser = this.SecurityService.userIdentity.tokenParsed;
-  }
+  constructor(public userService: UserService) { }
 
   ngOnInit(): void {
   }

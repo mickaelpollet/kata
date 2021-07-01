@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Import des services
-import { SecurityService } from '../../services/security.service';
+import { UserService } from '../../services/user.service';
 import { MenuService } from '../../services/menu.service';
 
 @Component({
@@ -11,18 +11,18 @@ import { MenuService } from '../../services/menu.service';
 })
 export class HomeComponent implements OnInit {
 
-  page_title: string                  = "Keycloak Angular Testing Application";
-  page_subject: string                = "Application testing for Keycloak environment";
-  page_menu_color: string             = "#424242";
+  page_title: string = "Keycloak Angular Testing Application";
+  page_subject: string = "Application testing for Keycloak environment";
+  page_menu_color: string = "#424242";
   userFirstName: any;
 
-  constructor(public securityService: SecurityService,
-              public menuService: MenuService) {
+  constructor(public userService: UserService,
+    public menuService: MenuService) {
 
     this.menuService.menu_color = this.page_menu_color;
 
-    if (this.securityService.userIdentity.authenticated) {
-      this.userFirstName = this.securityService.userIdentity.tokenParsed['given_name'];
+    if (this.userService.isAuthenticated()) {
+      this.userFirstName = this.userService.currentUser.fname;
     }
   }
 

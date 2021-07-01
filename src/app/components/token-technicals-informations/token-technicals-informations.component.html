@@ -1,24 +1,24 @@
 <mat-list dense style="background-color: #777;">
 
-    <mat-list-item>Authentication Server URL (authServerUrl) : {{ this.SecurityService.userIdentity.authServerUrl }}</mat-list-item>
+    <mat-list-item>Authentication Server URL (authServerUrl) : {{ this.userService.currentUser.keycloakUser.authServerUrl }}</mat-list-item>
 
     <mat-divider></mat-divider>
 
-    <mat-list-item>Issuer (iss) : {{ this.currentUser.iss }}</mat-list-item>
-    <mat-list-item>Client ID (clientId) : {{ this.SecurityService.userIdentity.clientId }}</mat-list-item>
-    <mat-list-item>Realm (realm) : {{ this.SecurityService.userIdentity.realm }}</mat-list-item>
-    <mat-list-item>Authorized Party (azp) : {{ this.currentUser.azp }}</mat-list-item>
+    <mat-list-item>Issuer (iss) : {{ this.userService.currentUser.keycloakUser.tokenParsed.iss }}</mat-list-item>
+    <mat-list-item>Client ID (clientId) : {{ this.userService.currentUser.keycloakUser.clientId }}</mat-list-item>
+    <mat-list-item>Realm (realm) : {{ this.userService.currentUser.keycloakUser.realm }}</mat-list-item>
+    <mat-list-item>Authorized Party (azp) : {{ this.userService.currentUser.keycloakUser.tokenParsed.azp }}</mat-list-item>
 
     <mat-divider></mat-divider>
 
     <mat-list-item [style.height]="'100%'" [style.padding-top]="'10px'" [style.padding-bottom]="'10px'">
         <div>Allowed Origins (allowed-origins)</div>
         <mat-chip-list
-            cdkDropList 
+            cdkDropList
             cdkDropListOrientation="horizontal">
             <mat-chip
                 cdkDrag
-                *ngFor="let currentOrigin of this.currentUser['allowed-origins']">
+                *ngFor="let currentOrigin of this.userService.currentUser.keycloakUser.tokenParsed['allowed-origins']">
                 {{ currentOrigin }}
             </mat-chip>
         </mat-chip-list>
@@ -28,7 +28,7 @@
 
     <mat-list-item [style.height]="'100%'" [style.padding-top]="'10px'" [style.padding-bottom]="'10px'">
         <div>Scopes (scope)</div>
-        <mat-chip cdkDrag>{{ this.currentUser.scope }}</mat-chip>
+        <mat-chip cdkDrag>{{ this.userService.currentUser.keycloakUser.tokenParsed.scope }}</mat-chip>
     </mat-list-item>
 
     <mat-divider></mat-divider>

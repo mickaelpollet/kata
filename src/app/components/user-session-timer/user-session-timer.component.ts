@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Import des services
-import { SecurityService } from '../../services/security.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user-session-timer',
@@ -10,11 +10,13 @@ import { SecurityService } from '../../services/security.service';
 })
 export class UserSessionTimerComponent implements OnInit {
 
-  countDownTime: number         = 0;
+  countDownTime: number = 0;
 
-  constructor(public securityService: SecurityService) {
+  constructor(public userService: UserService) {
     // Retreaving Session Time
-    this.countDownTime = this.securityService.userIdentity.tokenParsed['exp'] - this.securityService.userIdentity.tokenParsed['iat'];
+    if (this.userService.isAuthenticated()) {
+      this.countDownTime = this.userService.currentUser.keycloakUser.tokenParsed['exp'] - this.userService.currentUser.keycloakUser.tokenParsed['iat'];
+    }
   }
 
   ngOnInit(): void {

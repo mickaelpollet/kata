@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { isString } from 'util';
 
 // Import des services
-import { SecurityService } from '../../services/security.service';
+import { UserService } from '../../services/user.service';
 import { MenuService } from '../../services/menu.service';
 
 @Component({
@@ -15,29 +14,27 @@ import { MenuService } from '../../services/menu.service';
 export class TopMenuComponent implements OnInit {
 
   title: string = environment.appNameAcronym;
-  currentUser: any;
   menu_color: string;
 
-  constructor(public securityService: SecurityService, public menuService: MenuService) {
-    this.currentUser = this.securityService.userIdentity.tokenParsed;
+  constructor(public userService: UserService, public menuService: MenuService) {
     this.menu_color = this.menuService.menu_color;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   // Login method
   login() {
-    this.securityService.login();
+    this.userService.login();
   }
 
   // Logout method
   logout() {
-    this.securityService.logout();
+    this.userService.logout();
   }
 
   // Account managment method
   accountManagement() {
-    this.securityService.accountManagement();
+    this.userService.accountManagement();
   }
 
   // Check User Role
@@ -45,8 +42,8 @@ export class TopMenuComponent implements OnInit {
 
     let userRoleTesting: any = userRole;
 
-    if (isString(userRoleTesting)) {
-      if (this.securityService.hasRole(userRoleTesting)) {
+    if (typeof userRoleTesting === 'string') {
+      if (this.userService.hasRole(userRoleTesting)) {
         return true;
       } else {
         return false;
@@ -56,7 +53,7 @@ export class TopMenuComponent implements OnInit {
       let userAccess: boolean = false;
 
       for (let currentUserRole of userRoleTesting) {
-        if (this.securityService.hasRole(currentUserRole)) {
+        if (this.userService.hasRole(currentUserRole)) {
           userAccess = true;
         }
       }
@@ -66,11 +63,11 @@ export class TopMenuComponent implements OnInit {
   }
 
   hasAttribute(attribute: string) {
-    return this.securityService.hasAttribute(attribute);
+    return this.userService.hasAttribute(attribute);
   }
 
   getAttribute(attribute: string) {
-    return this.securityService.getAttribute(attribute);
+    return this.userService.getAttribute(attribute);
   }
 
 }

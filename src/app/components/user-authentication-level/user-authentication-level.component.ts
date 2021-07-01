@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Import des services
-import { SecurityService } from '../../services/security.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user-authentication-level',
@@ -10,14 +10,14 @@ import { SecurityService } from '../../services/security.service';
 })
 export class UserAuthenticationLevelComponent implements OnInit {
 
-  authenticationLevel: number         = 0;
-  authenticationLevelColor: string[]  = [ "red", "orange", "yellow", "green" ];
-  authenticationLevelSmiley: string[] = [ "sentiment_very_dissatisfied", "sentiment_satisfied", "sentiment_satisfied", "sentiment_very_satisfied" ];
-  authenticationStars                 = Array;
+  authenticationLevel: number = 0;
+  authenticationLevelColor: string[] = ["red", "orange", "yellow", "green"];
+  authenticationLevelSmiley: string[] = ["sentiment_very_dissatisfied", "sentiment_satisfied", "sentiment_satisfied", "sentiment_very_satisfied"];
+  authenticationStars = Array;
 
-  constructor(public securityService: SecurityService) {
+  constructor(public userService: UserService) {
     // Retreaving Authentication Level
-    this.authenticationLevel = this.securityService.userIdentity.tokenParsed['acr'];
+    this.authenticationLevel = this.userService.currentUser.keycloakUser.tokenParsed['acr'];
   }
 
   ngOnInit(): void {
