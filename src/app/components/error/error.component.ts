@@ -24,7 +24,5 @@ export class ErrorComponent implements OnInit {
     this.menuService.menu_color = this.page_menu_color;
   }
 
-  ngOnInit(): void {
-    this.error_message = this.errorService.errorMessage;
-  }
+  ngOnInit(): void { }
 }

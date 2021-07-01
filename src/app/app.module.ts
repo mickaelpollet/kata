@@ -24,6 +24,7 @@ import { TokenTechnicalsInformationsComponent } from './components/token-technic
 import { TokenUserInformationsComponent } from './components/token-user-informations/token-user-informations.component';
 import { UserAuthenticationLevelComponent } from './components/user-authentication-level/user-authentication-level.component';
 import { UserSessionTimerComponent } from './components/user-session-timer/user-session-timer.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 // Specific Keycloak Instanciation Function
 export function kcFactory(kcInstance: SecurityService) {
@@ -43,7 +44,8 @@ export function kcFactory(kcInstance: SecurityService) {
     TokenTechnicalsInformationsComponent,
     TokenUserInformationsComponent,
     UserAuthenticationLevelComponent,
-    UserSessionTimerComponent
+    UserSessionTimerComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

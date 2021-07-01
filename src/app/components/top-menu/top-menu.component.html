@@ -2,29 +2,31 @@
 
     <span>{{ title }}</span>
 
-    <span>
-        <button mat-button routerLink="/">
-            Home
+    <button mat-button routerLink="/">
+        Home
+    </button>
+
+    <button mat-button routerLink="/public">
+      Public
+    </button>
+
+    <span *ngIf="this.userService.isAuthenticated()">
+
+        <button mat-button routerLink="/private" *ngIf="this.userService.hasRole('user') || this.userService.hasRole('admin')">
+          Private
         </button>
+        <button mat-button *ngIf="!this.userService.hasRole('user') && !this.userService.hasRole('admin')" disabled>
+          Private
+        </button>
+
+        <button mat-button routerLink="/admin" *ngIf="hasRole(['admin'])">
+          Admin
+        </button>
+        <button mat-button *ngIf="!hasRole(['admin'])" disabled>
+          Admin
+        </button>
+
     </span>
-
-    <!-- <span *ngIf="this.userService.isAuthenticated()">
-
-        <button mat-button routerLink="/public" *ngIf="hasRole(['User','Admin'])">
-            Public
-        </button>
-        <button mat-button *ngIf="!hasRole(['User', 'Admin'])" disabled>
-            Public
-        </button>
-
-        <button mat-button routerLink="/private" *ngIf="hasRole(['Admin'])">
-            Private
-        </button>
-        <button mat-button *ngIf="!hasRole(['Admin'])" disabled>
-            Private
-        </button>
-
-    </span> -->
 
     <span class="fill-space"></span>
 
