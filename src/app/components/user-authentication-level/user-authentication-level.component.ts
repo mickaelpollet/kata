@@ -17,7 +17,7 @@ export class UserAuthenticationLevelComponent implements OnInit {
 
   constructor(public userService: UserService) {
     // Retreaving Authentication Level
-    this.authenticationLevel = this.userService.currentUser.keycloakUser.tokenParsed['acr'];
+    this.authenticationLevel = +this.userService.currentUser.keycloakUser.tokenParsed['acr'];
   }
 
   ngOnInit(): void {
