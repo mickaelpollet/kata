@@ -1,11 +1,45 @@
 <app-top-menu></app-top-menu>
 
-<mat-card class="jumbotron" style="background-image: url('../../../assets/img/keycloak-bg.png')">
-    <div class="logo">
-        <img src="assets/img/keycloak_logo.png">
+<mat-grid-list cols="1" rowHeight="280px">
+    <mat-grid-tile class="jumbotron" [style.background-image]="'url(\'../../../assets/img/keycloak-bg.png\')'">
+        <div class="logo">
+            <img src="assets/img/keycloak_logo.png">
+        </div>
+        <div class="jumbotron_container">
+            <h1 class="jumbotron_title">{{ page_title }}</h1>
+            <span class="jumbotron_subject">"{{ page_subject }}"</span>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list cols="10" rowHeight="100px">
+
+    <!-- Welcome Message -->
+    <mat-grid-tile [colspan]="8">
+        <span *ngIf="!this.userService.isAuthenticated()">
+            <span class="welcome_message">No user is authenticated, click on Login in the top menu</span>
+        </span>
+        <span *ngIf="this.userService.isAuthenticated()">
+            <span class="welcome_message">The user {{ this.userFirstName }} is correctly authenticated</span>
+        </span>
+    </mat-grid-tile>
+
+    <!-- User Session Timer -->
+    <div *ngIf="this.userService.isAuthenticated()">
+        <mat-grid-tile [colspan]="1" rowHeight="100%">
+            <app-user-session-timer></app-user-session-timer>
+        </mat-grid-tile>
     </div>
-    <div class="jumbotron_container">
-        <h1 class="jumbotron_title">{{ page_title }}</h1>
-        <span class="jumbotron_subject">"{{ page_subject }}"</span>
+
+    <!-- Authentication level -->
+    <div *ngIf="this.userService.isAuthenticated()">
+        <mat-grid-tile [colspan]="1" rowHeight="100%">
+            <app-user-authentication-level></app-user-authentication-level>
+        </mat-grid-tile>
     </div>
-</mat-card>
+
+</mat-grid-list>
+
+<span *ngIf="this.userService.isAuthenticated()">
+    <app-user></app-user>
+</span>

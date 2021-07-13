@@ -5,19 +5,14 @@
 export const environment = {
   production: false,
   KeycloakConfig: {
-
-    /***************************************************/
-    //        https://auth.poudlard.net:8450/
-    /***************************************************/
-
     url: 'https://auth.poudlard.net:8450/auth/',
     realm: 'poudlard',
     clientId: 'poudlard-front',
-
     clientSecret: ''
   },
   appName: 'Keycloak Angular Testing Application',
-  appNameAcronym: 'KATA'
+  appNameAcronym: 'KATA',
+  appUrl: 'https://kata.poudlard.net:4443'
 };
 
 /*
