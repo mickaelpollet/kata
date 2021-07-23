@@ -13,15 +13,15 @@ import { MenuService } from '../../services/menu.service';
 
 export class ErrorComponent implements OnInit {
 
-  page_title: string = "Oh no...!!!";
-  page_subject: string = "Something wrong...";
-  page_menu_color: string = "#722704"
-  error_message: string = 'I think there is a problem...';
+  public pageTitle = 'Oh no...!!!';
+  public pageSubject = 'Something wrong...';
+  public pageMenuColor = '#424242'
+  public errorMessage = 'I think there is a problem...';
 
   constructor(public errorService: ErrorService,
     public userService: UserService,
     public menuService: MenuService) {
-    this.menuService.menu_color = this.page_menu_color;
+    this.menuService.menuColor = this.pageMenuColor;
   }
 
   ngOnInit(): void { }

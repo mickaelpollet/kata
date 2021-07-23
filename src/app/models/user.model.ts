@@ -1,13 +1,13 @@
 // Concerned classes import
-import { Role } from "./role.model";
-import { Group } from "./group.model";
+import { Role } from './role.model';
+import { Group } from './group.model';
 
 export class User {
 
-  public id: string = '';
-  public mail: string = '';
-  public fname: string = '';
-  public lname: string = '';
+  public id = '';
+  public mail = '';
+  public fname = '';
+  public lname = '';
   public roles: Array<Role> = [];
   public groups: Array<Group> = [];
 

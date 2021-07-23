@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class MenuService {
 
-  menu_color: string = "#1f4988";
+  public menuColor = '#1f4988';
 
   constructor() { }
 }

@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'
 })
 
-export class ErrorService {
+export class ErrorService {
 
-  public errorMessage: string = 'An error has occured';
+  public errorMessage = 'An error has occured';
 
-  constructor() { }
+  constructor() { }
 }

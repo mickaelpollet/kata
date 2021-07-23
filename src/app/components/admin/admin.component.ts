@@ -10,10 +10,10 @@ import { UserService } from '../../services/user.service';
 })
 export class AdminComponent implements OnInit {
 
-  page_title: string = "Admin Page";
-  page_subject: string = "Admin Page";
-  page_menu_color: string = "#424242";
-  userFirstName: any;
+  public pageTitle = 'Admin Page';
+  public pageSubject = 'Admin Page';
+  public pageMenuColor = '#424242';
+  public userFirstName: any;
 
   constructor(public userService: UserService) { }
 

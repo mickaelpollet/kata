@@ -14,33 +14,33 @@ import { MenuService } from '../../services/menu.service';
 export class TopMenuComponent implements OnInit {
 
   title: string = environment.appNameAcronym;
-  menu_color: string;
+  menuColor: string;
 
   constructor(public userService: UserService, public menuService: MenuService) {
-    this.menu_color = this.menuService.menu_color;
+    this.menuColor = this.menuService.menuColor;
   }
 
   ngOnInit(): void { }
 
   // Login method
-  login() {
+  login(): void {
     this.userService.login();
   }
 
   // Logout method
-  logout() {
+  logout(): void {
     this.userService.logout();
   }
 
   // Account managment method
-  accountManagement() {
+  accountManagement(): void {
     this.userService.accountManagement();
   }
 
   // Check User Role
-  hasRole(userRole: string | string[]) {
+  hasRole(userRole: string | string[]): boolean {
 
-    let userRoleTesting: any = userRole;
+    const userRoleTesting: any = userRole;
 
     if (typeof userRoleTesting === 'string') {
       if (this.userService.hasRole(userRoleTesting)) {
@@ -50,9 +50,9 @@ export class TopMenuComponent implements OnInit {
       }
     } else {
 
-      let userAccess: boolean = false;
+      let userAccess = false;
 
-      for (let currentUserRole of userRoleTesting) {
+      for (const currentUserRole of userRoleTesting) {
         if (this.userService.hasRole(currentUserRole)) {
           userAccess = true;
         }
@@ -62,11 +62,11 @@ export class TopMenuComponent implements OnInit {
     }
   }
 
-  hasAttribute(attribute: string) {
+  hasAttribute(attribute: string): boolean {
     return this.userService.hasAttribute(attribute);
   }
 
-  getAttribute(attribute: string) {
+  getAttribute(attribute: string): boolean {
     return this.userService.getAttribute(attribute);
   }
 

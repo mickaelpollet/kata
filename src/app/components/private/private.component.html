@@ -6,8 +6,8 @@
             <img src="assets/img/keycloak_logo.png">
         </div>
         <div class="jumbotron_container">
-            <h1 class="jumbotron_title">{{ page_title }}</h1>
-            <span class="jumbotron_subject">"{{ page_subject }}"</span>
+            <h1 class="jumbotron_title">{{ pageTitle }}</h1>
+            <span class="jumbotron_subject">"{{ pageSubject }}"</span>
         </div>
     </mat-grid-tile>
 </mat-grid-list>
@@ -22,21 +22,21 @@
         <span *ngIf="this.userService.isAuthenticated()">
             <span class="welcome_message">The user {{ this.userFirstName }} is correctly authenticated</span>
         </span>
-    </mat-grid-tile>
+    </mat-grid-tile> <!-- ./Welcome Message -->
 
     <!-- User Session Timer -->
     <div *ngIf="this.userService.isAuthenticated()">
         <mat-grid-tile [colspan]="1" rowHeight="100%">
             <app-user-session-timer></app-user-session-timer>
         </mat-grid-tile>
-    </div>
+    </div> <!-- ./User Session Timer -->
 
     <!-- Authentication level -->
     <div *ngIf="this.userService.isAuthenticated()">
         <mat-grid-tile [colspan]="1" rowHeight="100%">
             <app-user-authentication-level></app-user-authentication-level>
         </mat-grid-tile>
-    </div>
+    </div> <!-- ./Authentication level -->
 
 </mat-grid-list>
 

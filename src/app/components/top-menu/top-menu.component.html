@@ -1,4 +1,4 @@
-<mat-toolbar class="navbar" [ngStyle]="{'background-color': this.menu_color}">
+<mat-toolbar class="navbar" [ngStyle]="{'background-color': this.menuColor}">
 
     <span>{{ title }}</span>
 
@@ -6,25 +6,30 @@
         Home
     </button>
 
-    <button mat-button routerLink="/public">
+    <button mat-button routerLink="/public" matTooltip="No Role/Group/Attribute is needed">
       Public
     </button>
 
     <span *ngIf="this.userService.isAuthenticated()">
 
-        <button mat-button routerLink="/private" *ngIf="this.userService.hasRole('user') || this.userService.hasRole('admin')">
+        <button mat-button routerLink="/private" *ngIf="this.userService.hasRole('user') || this.userService.hasRole('admin')" matTooltip="Need Role 'admin' or 'user'">
           Private
         </button>
-        <button mat-button *ngIf="!this.userService.hasRole('user') && !this.userService.hasRole('admin')" disabled>
-          Private
-        </button>
+        <span matTooltip="Need Role 'admin' or 'user'" *ngIf="!this.userService.hasRole('user') && !this.userService.hasRole('admin')">
+          <button mat-button  disabled>
+            Private
+          </button>
+        </span>
 
-        <button mat-button routerLink="/admin" *ngIf="hasRole(['admin'])">
+
+        <button mat-button routerLink="/admin" *ngIf="hasRole(['admin'])" matTooltip="Need Role 'admin'">
           Admin
         </button>
-        <button mat-button *ngIf="!hasRole(['admin'])" disabled>
-          Admin
-        </button>
+        <span matTooltip="Need Role 'admin'" *ngIf="!hasRole(['admin'])">
+          <button mat-button  disabled>
+            Admin
+          </button>
+        </span>
 
     </span>
 

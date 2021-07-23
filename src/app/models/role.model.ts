@@ -1,6 +1,6 @@
 export class Role {
 
-  public name: string = '';
+  public name = '';
 
   constructor() { }
 

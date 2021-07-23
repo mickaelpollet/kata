@@ -11,15 +11,15 @@ import { MenuService } from '../../services/menu.service';
 })
 export class PrivateComponent implements OnInit {
 
-  page_title: string = "Private Page";
-  page_subject: string = "Private Page";
-  page_menu_color: string = "#424242";
-  userFirstName: any;
+  public pageTitle = 'Private Page';
+  public pageSubject = 'Private Page';
+  public pageMenuColor = '#424242';
+  public userFirstName: any;
 
   constructor(public userService: UserService,
     public menuService: MenuService) {
 
-    this.menuService.menu_color = this.page_menu_color;
+    this.menuService.menuColor = this.pageMenuColor;
 
     if (this.userService.isAuthenticated()) {
       this.userFirstName = this.userService.currentUser.fname;

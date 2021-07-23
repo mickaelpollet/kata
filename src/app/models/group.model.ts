@@ -1,6 +1,6 @@
 export class Group {
 
-  public name: string = '';
+  public name = '';
 
   constructor() { }
 

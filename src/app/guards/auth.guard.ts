@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-// Services Import
+// Services import
 import { UserService } from '../services/user.service';
 import { ErrorService } from '../services/error.service';
 
@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
     let userGroups: Array<string> = [];
     let userAttributes: Array<string> = [];
 
-    let accessInformations = next.data;
+    const accessInformations = next.data;
 
     if (accessInformations.hasOwnProperty('roles')) {
       userRoles = accessInformations.roles;
@@ -40,10 +40,10 @@ export class AuthGuard implements CanActivate {
     }
 
     // Préparation des données
-    let authorizationAccess: boolean = false;
+    let authorizationAccess = false;
 
     // Parcours des Rôles donnés sur la route
-    for (let currentRole of userRoles) {
+    for (const currentRole of userRoles) {
       // Test du rôle vis à vis de l'identité de l'utilisateur
       if (this.userService.hasRealmRole(currentRole) || this.userService.hasResourceRole(currentRole)) {
         authorizationAccess = true;
@@ -51,7 +51,7 @@ export class AuthGuard implements CanActivate {
     }
 
     // Parcours des attributs donnés sur la route
-    for (let currentGroup of userGroups) {
+    for (const currentGroup of userGroups) {
 
       console.log(currentGroup);
       // Test de l'existance de l'attribut pour l'utilisateur
@@ -61,7 +61,7 @@ export class AuthGuard implements CanActivate {
     }
 
     // Parcours des attributs donnés sur la route
-    for (let currentAttrubute of userAttributes) {
+    for (const currentAttrubute of userAttributes) {
       // Test de l'existance de l'attribut pour l'utilisateur
       if (this.userService.hasAttribute(currentAttrubute)) {
         authorizationAccess = true;
@@ -72,7 +72,7 @@ export class AuthGuard implements CanActivate {
     if (authorizationAccess === true) {       // SI le status est positif...
       return true;                            // On autorise l'accès
     } else {                                  // SINON...
-      this.errorService.errorMessage = "Not enough right";  // Ajout du message d'erreur dans le service de gestion d'erreurs
+      this.errorService.errorMessage = 'Not enough right';  // Ajout du message d'erreur dans le service de gestion d'erreurs
       this.route.navigate(['/error']);       // On redirige vers la page d'erreur
       return false;                           // On renvoie le status négatif
     }

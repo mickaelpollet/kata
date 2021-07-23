@@ -1,7 +1,7 @@
 // Concerned classes import
-import { User } from "./user.model";
+import { User } from './user.model';
 
-export interface currentUser extends User {
+export interface CurrentUser extends User {
 
   // Technical Data
   keycloakUser: any;

@@ -5,9 +5,14 @@
 export const environment = {
   production: false,
   KeycloakConfig: {
-    url: 'https://auth.poudlard.net:8450/auth/',
-    realm: 'poudlard',
-    clientId: 'poudlard-front',
+    // url: 'https://auth.poudlard.net:8450/auth/',
+    // realm: 'poudlard',
+    // clientId: 'poudlard-front',
+
+    url: 'https://cerbere.mipih.fr/auth/',
+    realm: 'Medimail_TEST',
+    clientId: 'Medimail',
+
     clientSecret: ''
   },
   appName: 'Keycloak Angular Testing Application',

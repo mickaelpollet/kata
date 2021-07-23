@@ -12,20 +12,18 @@ import { UserService } from '../../services/user.service';
 
 export class TokenInformationsComponent implements OnInit {
 
-  //currentUser: any;
-
   constructor(public userService: UserService, public dialog: MatDialog) { }
 
-  openTokenDialog() {
-    this.dialog.open(TokenInformationsDialog);
+  openTokenDialog(): void {
+    this.dialog.open(TokenInformationsDialogComponent);
   }
 
-  openRefreshTokenDialog() {
-    this.dialog.open(RefreshTokenInformationsDialog);
+  openRefreshTokenDialog(): void {
+    this.dialog.open(RefreshTokenInformationsDialogComponent);
   }
 
-  openIDTokenDialog() {
-    this.dialog.open(IdTokenInformationsDialog);
+  openIDTokenDialog(): void {
+    this.dialog.open(IdTokenInformationsDialogComponent);
   }
 
   ngOnInit(): void {
@@ -33,10 +31,10 @@ export class TokenInformationsComponent implements OnInit {
 }
 
 @Component({
-  selector: 'token-informations-dialog',
+  selector: 'app-token-informations-dialog',
   templateUrl: 'token-informations_token.component.html',
 })
-export class TokenInformationsDialog {
+export class TokenInformationsDialogComponent {
 
   currentUser: any;
 
@@ -44,10 +42,10 @@ export class TokenInformationsDialog {
 }
 
 @Component({
-  selector: 'refresh-token-informations-dialog',
+  selector: 'app-refresh-token-informations-dialog',
   templateUrl: 'token-informations_refresh-token.component.html',
 })
-export class RefreshTokenInformationsDialog {
+export class RefreshTokenInformationsDialogComponent {
 
   currentUser: any;
 
@@ -55,10 +53,10 @@ export class RefreshTokenInformationsDialog {
 }
 
 @Component({
-  selector: 'id-token-informations-dialog',
+  selector: 'app-id-token-informations-dialog',
   templateUrl: 'token-informations_id-token.component.html',
 })
-export class IdTokenInformationsDialog {
+export class IdTokenInformationsDialogComponent {
 
   currentUser: any;
 
