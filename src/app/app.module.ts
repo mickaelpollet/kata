@@ -1,18 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER } from '@angular/core';
-
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Specifics modules
-import { MaterialModule } from './modules/material/material.module';
-import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
+//  Specifics modules
+import { MaterialModule } from './modules/material/material.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CountdownModule } from 'ngx-countdown';
 
-// Security
-import { SecurityService } from './services/security.service';
-import { RequestInterceptorService } from './services/request-interceptor.service';
+//  Security
+import { SecurityService } from './services/security.service';
+import { RequestInterceptorService } from './services/request-interceptor.service';
+
+// Components
 import { ErrorComponent } from './components/error/error.component';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { HomeComponent } from './components/home/home.component';
@@ -27,8 +28,8 @@ import { UserSessionTimerComponent } from './components/user-session-timer/user-
 import { AdminComponent } from './components/admin/admin.component';
 
 // Specific Keycloak Instanciation Function
-export function kcFactory(kcInstance: SecurityService) {
-    return ()=> kcInstance.init();
+export function kcFactory(kcInstance: SecurityService): any {
+  return () => kcInstance.init();
 }
 
 @NgModule({
@@ -55,8 +56,8 @@ export function kcFactory(kcInstance: SecurityService) {
     CountdownModule
   ],
   providers: [
-    { provide: APP_INITIALIZER, deps: [ SecurityService ], useFactory: kcFactory, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptorService, multi: true }
+    { provide: APP_INITIALIZER, deps: [SecurityService], useFactory: kcFactory, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })

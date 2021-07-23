@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// Guards Import
+//  Guards import
 import { AuthGuard } from './guards/auth.guard';
 
-// Components Import
+//  Components import
 import { HomeComponent } from './components/home/home.component';
 import { PublicComponent } from './components/public/public.component';
 import { AdminComponent } from './components/admin/admin.component';
