@@ -8,13 +8,13 @@
         <h1 class="block-title">Authentication level</h1>
     </mat-grid-tile-header>
 
-    <table [style.margin-left]="'auto'" [style.margin-right]="'auto'">
+    <table class="kt-table">
         <tr height="45px"><td> </td><td> </td></tr>
         <tr>
-            <td width="40%">
+            <td class="kt-td-1">
                 <mat-icon class="authenticationSmiley" aria-hidden="false" aria-label="Authentication level">{{ authenticationLevelSmiley[this.authenticationLevel] }}</mat-icon>
             </td>
-            <td width="60%">
+            <td class="kt-td-2">
                 <div *ngIf="this.authenticationLevel > 0">
                     <mat-icon aria-hidden="false" aria-label="Authentication level" *ngFor="let currentStar of this.authenticationStars(this.authenticationLevel).fill(1)">star</mat-icon>
                     <mat-icon aria-hidden="false" aria-label="Authentication level" *ngFor="let currentStar of this.authenticationStars(3 - this.authenticationLevel).fill(1)">star_outline</mat-icon>

@@ -1,10 +1,23 @@
 .authenticationLevel {
-    height: 100px;
-    width: 200px;
-    text-align: center;
+  height: 100px;
+  width: 200px;
+  text-align: center;
 }
 
 .authenticationSmiley {
-    margin-right: 30px;
-    font-size: 3.5em;
+  margin-right: 30px;
+  font-size: 3.5em;
+}
+
+.kt-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kt-td-1 {
+  width: 40%;
+}
+
+.kt-td-2 {
+  width: 60%;
 }

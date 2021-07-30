@@ -1,19 +1,18 @@
-<div    class="sessionDurationLeft" [style.background-color]="'#69F0AE'"
-        #tooltip="matTooltip"
-        matTooltip="Time during user can use his Access Token. When Access Token is over, the user can't use back functionalities."
-        [matTooltipPosition]="'above'">
+<div  class="sessionDurationLeft"
+      #tooltip="matTooltip"
+      matTooltip="Time during user can use his Access Token. When Access Token is over, the user can't use back functionalities."
+      [matTooltipPosition]="'above'">
 
-    <mat-grid-tile-header>
-        <h1 class="block-title">Acc. Token Lifespan Left</h1>
-    </mat-grid-tile-header>
+  <mat-grid-tile-header>
+      <h1 class="block-title">Acc. Token Lifespan Left</h1>
+  </mat-grid-tile-header>
 
-    <table [style.margin-left]="'auto'" [style.margin-right]="'auto'">
-        <tr height="60px"><td> </td><td> </td></tr>
-        <tr>
-            <td class="countDown">
-                <countdown [config]="{leftTime: this.countDownTime }"></countdown>
-            </td>
-        </tr>
-    </table>
-
+  <table class="kt-table">
+      <tr height="60px"><td> </td><td> </td></tr>
+      <tr>
+          <td class="countDown">
+              <countdown [config]="{leftTime: this.countDownTime }"></countdown>
+          </td>
+      </tr>
+  </table>
 </div>

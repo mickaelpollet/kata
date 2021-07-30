@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 
-// Import des services
+// Services import
 import { UserService } from '../../services/user.service';
 import { MenuService } from '../../services/menu.service';
 
