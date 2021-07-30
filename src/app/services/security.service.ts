@@ -22,8 +22,6 @@ export class SecurityService {
 
   async init(): Promise<any> {
 
-    console.log('Security initialization...');
-
     this.userIdentity = new Keycloak({
       url: environment.KeycloakConfig.url,
       realm: environment.KeycloakConfig.realm,

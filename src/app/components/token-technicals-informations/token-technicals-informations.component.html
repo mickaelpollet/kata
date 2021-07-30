@@ -1,6 +1,6 @@
 <mat-list dense style="background-color: #777;">
 
-    <mat-list-item>Authentication Server URL (authServerUrl) : {{ this.userService.currentUser.keycloakUser.authServerUrl }}</mat-list-item>
+    <mat-list-item>Authentication Server URL (authServerUrl) : {{ this.userService.currentUser.keycloakUser.authServerUrl }} <a href="{{ this.userService.currentUser.keycloakUser.authServerUrl }}" target="_blank"><mat-icon class="kata-keycloak-server" aria-hidden="false" aria-label="Keycloak Server" matTooltip="Access to server">login</mat-icon></a></mat-list-item>
 
     <mat-divider></mat-divider>
 

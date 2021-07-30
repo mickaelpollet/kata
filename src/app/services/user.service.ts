@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 
 // Environnment variables import
 import { environment } from '../../environments/environment';
@@ -16,12 +15,25 @@ export class UserService {
 
   public currentUser: CurrentUser = {} as CurrentUser;
 
-  constructor(private router: Router) { }
+  constructor() {
+    if (this.isAuthenticated()) {
+      this.refreshToken()
+        .then(response => {
+          console.log('Updated token');
+        })
+        .catch(error => console.error(error));
+    }
+  }
 
   init(userIdentity: any): void {
     this.currentUser.keycloakUser = userIdentity;
 
     if (this.isAuthenticated()) {
+
+      // Retrieve user informations
+      this.currentUser.keycloakUser.loadUserInfo();
+
+      // Mapping user information to currentUser object
       this.currentUser.mail = this.currentUser.keycloakUser.tokenParsed.email;
       this.currentUser.lname = this.currentUser.keycloakUser.tokenParsed.family_name;
       this.currentUser.fname = this.currentUser.keycloakUser.tokenParsed.given_name;
@@ -126,6 +138,30 @@ export class UserService {
   // Account managment method
   accountManagement(): void {
     this.currentUser.keycloakUser.accountManagement();
+  }
+
+  refreshToken(): Promise<string> {
+    return new Promise<string>((resolve, reject) => {
+      if (this.currentUser.keycloakUser.authenticated) {
+
+        const exp = this.currentUser.keycloakUser.tokenParsed.exp as number;
+        const iat = this.currentUser.keycloakUser.tokenParsed.iat as number;
+        const updateTime = (exp - iat) / 2;
+
+        console.log(updateTime);
+
+        this.currentUser.keycloakUser
+          .updateToken(updateTime)
+          .then(() => {
+            resolve(this.currentUser.keycloakUser.token);
+          })
+          .catch(() => {
+            reject('Failed to refresh token');
+          });
+      } else {
+        reject('Not logged in');
+      }
+    });
   }
 
   // Check if user has specific role

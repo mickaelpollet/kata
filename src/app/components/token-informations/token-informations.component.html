@@ -11,7 +11,7 @@
     <mat-list-item>Authentication Time (auth_time) : {{ this.userService.currentUser.keycloakUser.tokenParsed.auth_time }} - {{ this.userService.currentUser.keycloakUser.tokenParsed.auth_time * 1000 | date: 'medium' }}</mat-list-item>
     <mat-list-item>Issued at (iat) : {{ this.userService.currentUser.keycloakUser.tokenParsed.iat }} - {{ this.userService.currentUser.keycloakUser.tokenParsed.iat * 1000 | date: 'medium' }}</mat-list-item>
     <mat-list-item>Expiration Time (exp) : {{ this.userService.currentUser.keycloakUser.tokenParsed.exp }} - {{ this.userService.currentUser.keycloakUser.tokenParsed.exp * 1000 | date: 'medium' }}</mat-list-item>
-    <mat-list-item>Session Time Duration : {{ this.userService.currentUser.keycloakUser.tokenParsed.exp - this.userService.currentUser.keycloakUser.tokenParsed.iat }} s</mat-list-item>
+    <mat-list-item>Access Token Lifespan : {{ this.userService.currentUser.keycloakUser.tokenParsed.exp - this.userService.currentUser.keycloakUser.tokenParsed.iat }} s</mat-list-item>
 
     <mat-divider></mat-divider>
 

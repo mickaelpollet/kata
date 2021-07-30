@@ -1,0 +1,19 @@
+<div    class="sessionDurationLeft" [style.background-color]="'#f08869'"
+        #tooltip="matTooltip"
+        matTooltip="Time during user can use his Refresh Token. When the Refresh Token is over, the user is logout."
+        [matTooltipPosition]="'above'">
+
+  <mat-grid-tile-header>
+      <h1 class="block-title">Refr. Token Lifespan Left</h1>
+  </mat-grid-tile-header>
+
+  <table [style.margin-left]="'auto'" [style.margin-right]="'auto'">
+      <tr height="60px"><td> </td><td> </td></tr>
+      <tr>
+          <td class="countDown">
+              <countdown [config]="{leftTime: this.countDownTime }"></countdown>
+          </td>
+      </tr>
+  </table>
+
+</div>

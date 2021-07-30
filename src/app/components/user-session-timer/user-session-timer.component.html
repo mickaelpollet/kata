@@ -1,10 +1,11 @@
-<div    class="sessionDurationLeft" [style.background-color]="'#69F0AE'">
+<div    class="sessionDurationLeft" [style.background-color]="'#69F0AE'"
+        #tooltip="matTooltip"
+        matTooltip="Time during user can use his Access Token. When Access Token is over, the user can't use back functionalities."
+        [matTooltipPosition]="'above'">
 
     <mat-grid-tile-header>
-        <h1 class="block-title">Session Duration Left</h1>
+        <h1 class="block-title">Acc. Token Lifespan Left</h1>
     </mat-grid-tile-header>
-
-    
 
     <table [style.margin-left]="'auto'" [style.margin-right]="'auto'">
         <tr height="60px"><td> </td><td> </td></tr>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpEvent, HttpRequest, HttpHandler } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
 
 // Services Import
 import { UserService } from './user.service';
@@ -14,17 +15,27 @@ export class RequestInterceptorService implements HttpInterceptor {
   constructor(private userService: UserService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    //  Checking if user is not authenticated
-    if (!this.userService.isAuthenticated()) {                                //  If it's not...
-      next.handle(req);                                                       //  No request interception
-    } else {                                                                  //  Else...
-      const currentRequest = req.clone({                                      //  Cloning current request with Bearer implementation
-        setHeaders: {
-          Authorization: 'bearer ' + this.userService.currentUser.token
-        }
-      });
-      return next.handle(currentRequest);
+
+    if (this.userService.isAuthenticated()) {
+      return this.getUserToken().pipe(
+        mergeMap((token) => {
+          if (token) {
+            req = req.clone({
+              setHeaders: {
+                Authorization: `Bearer ${token}`
+              }
+            });
+          }
+          return next.handle(req);
+        }));
     }
+    return next.handle(req);
   }
 
+  getUserToken(): Observable<string> {
+    const tokenPromise: Promise<string> = this.userService.refreshToken();
+    console.log(tokenPromise);
+    const tokenObservable: Observable<string> = from(tokenPromise);
+    return tokenObservable;
+  }
 }

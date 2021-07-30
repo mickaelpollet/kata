@@ -15,7 +15,7 @@
 <mat-grid-list cols="10" rowHeight="100px">
 
     <!-- Welcome Message -->
-    <mat-grid-tile [colspan]="8">
+    <mat-grid-tile [colspan]="7">
         <span *ngIf="!this.userService.isAuthenticated()">
             <span class="welcome_message">No user is authenticated, click on Login in the top menu</span>
         </span>
@@ -23,6 +23,13 @@
             <span class="welcome_message">The user {{ this.userFirstName }} is correctly authenticated</span>
         </span>
     </mat-grid-tile> <!-- ./Welcome Message -->
+
+    <!-- User Session Timer -->
+    <div *ngIf="this.userService.isAuthenticated()">
+      <mat-grid-tile [colspan]="1" rowHeight="100%">
+          <app-user-refresh-token-timer></app-user-refresh-token-timer>
+      </mat-grid-tile>
+  </div> <!-- ./User Session Timer -->
 
     <!-- User Session Timer -->
     <div *ngIf="this.userService.isAuthenticated()">

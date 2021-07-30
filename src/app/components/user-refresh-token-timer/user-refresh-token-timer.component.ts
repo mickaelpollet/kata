@@ -4,18 +4,18 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-user-session-timer',
-  templateUrl: './user-session-timer.component.html',
-  styleUrls: ['./user-session-timer.component.scss']
+  selector: 'app-user-refresh-token-timer',
+  templateUrl: './user-refresh-token-timer.component.html',
+  styleUrls: ['./user-refresh-token-timer.component.scss']
 })
-export class UserSessionTimerComponent implements OnInit {
+export class UserRefreshTokenTimerComponent implements OnInit {
 
   public countDownTime = 0;
 
   constructor(public userService: UserService) {
     // Retreaving Session Time
     if (this.userService.isAuthenticated()) {
-      const exp = this.userService.currentUser.keycloakUser.tokenParsed.exp;
+      const exp = this.userService.currentUser.keycloakUser.refreshTokenParsed.exp;
       const now = Date.now() / 1000;
       this.countDownTime = exp - now;
     }
