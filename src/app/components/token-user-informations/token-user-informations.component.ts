@@ -10,7 +10,20 @@ import { UserService } from '../../services/user.service';
 })
 export class TokenUserInformationsComponent implements OnInit {
 
-  constructor(public userService: UserService) { }
+  userHasRole: boolean = false;
+
+  constructor(public userService: UserService) {
+
+    // if (this.currentUser.keycloakUser.hasOwnProperty('realmAccess')) {
+    if (typeof this.userService.currentUser.keycloakUser.tokenParsed['resource_access'] !== 'undefined') {
+      this.userHasRole = true;
+    }
+    // }
+
+
+
+    // this.userService.currentUser.keycloakUser.tokenParsed['resource_access'].account.roles
+  }
 
   ngOnInit(): void {
   }

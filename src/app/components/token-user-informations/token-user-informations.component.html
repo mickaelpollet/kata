@@ -33,7 +33,8 @@
         <div> Ressource Roles (resource_access / account / roles)</div>
         <mat-chip-list
             cdkDropList
-            cdkDropListOrientation="horizontal">
+            cdkDropListOrientation="horizontal"
+            *ngIf="this.userHasRole == true">
             <mat-chip
                 cdkDrag
                 *ngFor="let RessourceRole of this.userService.currentUser.keycloakUser.tokenParsed['resource_access'].account.roles">
