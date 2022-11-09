@@ -1,10 +1,11 @@
 export const environment = {
   production: true,
   KeycloakConfig: {
-    url: 'https://auth.poudlard.net:8450/auth/',
-    realm: 'Poudlard',
-    clientId: 'poudlard',
-    clientSecret: ''
+    url: 'https://keycloak.poudlard.net/auth/',
+    realm: 'test_realm',
+    clientId: 'kata',
+    clientSecret: '',
+    scope: 'openid profile email'
   },
   appName: 'Keycloak Angular Testing Application',
   appNameAcronym: 'KATA',

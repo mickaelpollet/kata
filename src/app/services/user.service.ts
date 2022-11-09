@@ -108,8 +108,7 @@ export class UserService {
        * For example, if you enter the scope options address phone,
        * then the request to Keycloak will contain the scope parameter scope=openid address phone.
        */
-      //scope: 'openid profile email instant_messaging_user instant_messaging_tech',
-      scope: 'openid instant_messaging_user instant_messaging_tech',
+      scope: environment.KeycloakConfig.scope,
       /**
        * Used to tell Keycloak to skip showing the login page and automatically redirect
        * to the specified identity provider instead. More info in the Identity Provider documentation.

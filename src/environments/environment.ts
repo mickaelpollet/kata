@@ -5,15 +5,11 @@
 export const environment = {
   production: false,
   KeycloakConfig: {
-    url: 'https://auth.poudlard.net:8450/auth/',
-    realm: 'poudlard',
-    clientId: 'poudlard-front',
-
-    // url: 'https://cerbere.mipih.fr/auth/',
-    // realm: 'test_realm',
-    // clientId: 'kata_test_FRONT',
-
-    clientSecret: ''
+    url: 'https://keycloak.poudlard.net/auth/',
+    realm: 'test_realm',
+    clientId: 'kata',
+    clientSecret: '',
+    scope: 'openid profile email'
   },
   appName: 'Keycloak Angular Testing Application',
   appNameAcronym: 'KATA',
